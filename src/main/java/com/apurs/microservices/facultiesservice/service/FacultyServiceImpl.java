@@ -3,6 +3,7 @@ package com.apurs.microservices.facultiesservice.service;
 import java.util.Collection;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
 import com.apurs.microservices.facultiesservice.dto.FacultyCreateDTO;
@@ -19,6 +20,7 @@ public class FacultyServiceImpl implements FacultyService {
 	
 	public FacultyServiceImpl(FacultyRepository facultyRepository) {
 		this.facultyRepository = facultyRepository;
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 	}
 	
 	@Override
