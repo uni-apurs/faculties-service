@@ -1,55 +1,70 @@
 package com.apurs.microservices.facultiesservice.model;
 
-import java.io.Serializable;
+import java.time.ZonedDateTime;
+
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * The persistent class for the "faculty" database table.
- * 
- */
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name="\"faculty\"")
-@NamedQuery(name="Faculty.findAll", query="SELECT f FROM Faculty f")
-public class Faculty implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+@SequenceGenerator(name = "faculty_id_seq", initialValue = 1, allocationSize = 1)
+public class Faculty {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "faculty_id_seq")
 	@Column(name="\"id\"")
 	private int id;
-
-	@Column(name="\"address\"")
-	private String address;
-
+	
 	@Column(name="\"name\"")
 	private String name;
-
-	public Faculty() {
-	}
-
+	
+	@Column(name="\"address\"")
+	private String address;
+	
+	@Column(name="\"createdAt\"")
+	private ZonedDateTime createdAt;
+	
+	@Column(name="\"updatedAt\"")
+	private ZonedDateTime updatedAt;
+	
 	public int getId() {
-		return this.id;
+		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
+	
 	public String getName() {
-		return this.name;
+		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public ZonedDateTime getCreatedAt() {
+		return createdAt;
+	}
+	
+	public void setCreatedAt(ZonedDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	public ZonedDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+	
+	public void setUpdatedAt(ZonedDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 }

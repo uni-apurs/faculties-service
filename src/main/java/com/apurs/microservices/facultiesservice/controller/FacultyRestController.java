@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.apurs.microservices.facultiesservice.dto.FacultyCreateDTO;
+import com.apurs.microservices.facultiesservice.dto.FacultyUpdateDTO;
 import com.apurs.microservices.facultiesservice.model.Faculty;
 import com.apurs.microservices.facultiesservice.service.FacultyServiceImpl;
 
 @RestController
-@RequestMapping("/faculty")
+@RequestMapping("/faculties")
 public class FacultyRestController {
 
 	@Autowired
@@ -35,7 +37,7 @@ public class FacultyRestController {
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<Faculty> insertFaculty(@RequestBody Faculty faculty) {
+	public ResponseEntity<Faculty> insertFaculty(@RequestBody FacultyCreateDTO faculty) {
 		if (facultyService.insert(faculty) != null)
 			return new ResponseEntity<>(HttpStatus.OK);
 		
@@ -43,7 +45,7 @@ public class FacultyRestController {
 	}
 	
 	@PutMapping("")
-	public ResponseEntity<Faculty> updateFaculty(@RequestBody Faculty faculty) {
+	public ResponseEntity<Faculty> updateFaculty(@RequestBody FacultyUpdateDTO faculty) {
 		if (facultyService.update(faculty))
 			return new ResponseEntity<>(HttpStatus.OK);
 
