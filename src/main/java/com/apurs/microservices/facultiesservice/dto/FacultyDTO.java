@@ -1,25 +1,25 @@
 package com.apurs.microservices.facultiesservice.dto;
 
-import java.time.ZonedDateTime;
+//import java.time.ZonedDateTime;
 
 public class FacultyDTO {
 	private int id;
 	private String name;
 	private String address;
-	private ZonedDateTime createdAt;
-	private ZonedDateTime updatedAt;
+//	private ZonedDateTime createdAt;
+//	private ZonedDateTime updatedAt;
 	
 	public FacultyDTO() {
 		super();
 	}
 
-	public FacultyDTO(int id, String name, String address, ZonedDateTime createdAt, ZonedDateTime updatedAt) {
+	public FacultyDTO(int id, String name, String address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+//		this.createdAt = createdAt;
+//		this.updatedAt = updatedAt;
 	}
 	
 	public int getId() {
@@ -46,19 +46,19 @@ public class FacultyDTO {
 		this.address = address;
 	}
 
-	public ZonedDateTime getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(ZonedDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public ZonedDateTime getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(ZonedDateTime updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+//	public ZonedDateTime getCreatedAt() {
+//		return createdAt;
+//	}
+//
+//	public void setCreatedAt(ZonedDateTime createdAt) {
+//		this.createdAt = createdAt;
+//	}
+//
+//	public ZonedDateTime getUpdatedAt() {
+//		return updatedAt;
+//	}
+//
+//	public void setUpdatedAt(ZonedDateTime updatedAt) {
+//		this.updatedAt = updatedAt;
+//	}
 }
