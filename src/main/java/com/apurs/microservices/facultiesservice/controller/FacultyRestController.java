@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.apurs.microservices.facultiesservice.dto.FacultyCreateDTO;
 import com.apurs.microservices.facultiesservice.dto.FacultyDTO;
 import com.apurs.microservices.facultiesservice.dto.FacultyUpdateDTO;
-import com.apurs.microservices.facultiesservice.service.FacultyServiceImpl;
+import com.apurs.microservices.facultiesservice.service.FacultyService;
 
 @RestController
 @RequestMapping("/faculties")
 public class FacultyRestController {
 
 	@Autowired
-	private FacultyServiceImpl facultyService;
+	private FacultyService facultyService;
 
 	@GetMapping("")
 	public List<FacultyDTO> getFaculties(@RequestParam(required = false) String name) {
